@@ -31,13 +31,13 @@ public:
      */
     void setColor(unsigned char red_value, unsigned char green_value, unsigned char blue_value) {
       
-	unsigned char interrupter = '\0';
+	unsigned char interrupter = 0;
 	boost::asio::write(serial_, boost::asio::buffer( &interrupter, 1));
        
- 	usleep(10000);	
+ 	//usleep(10000);	
 	
-	unsigned char quantifier[] = {'R', 'G', 'B'};
-  	boost::asio::write(serial_, boost::asio::buffer( &quantifier, 3));
+	//unsigned char quantifier[] = {'R', 'G', 'B'};
+  	//boost::asio::write(serial_, boost::asio::buffer( &quantifier, 3));
         boost::asio::write(serial_, boost::asio::buffer( &red_value, 1));
         boost::asio::write(serial_, boost::asio::buffer( &green_value, 1));
         boost::asio::write(serial_, boost::asio::buffer( &blue_value, 1));
