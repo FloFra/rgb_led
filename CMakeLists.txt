@@ -1,11 +1,20 @@
 cmake_minimum_required ( VERSION 2.6 )
-project ( RGBLEDControl )
+project ( rgbledctl )
 
-FIND_PACKAGE( Boost 1.40 COMPONENTS system thread REQUIRED )
-INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin/)
 
-add_executable(rgbledctl RGBLEDControl.cpp)
+link_directories(${EXECUTABLE_OUTPUT_PATH})
 
-TARGET_LINK_LIBRARIES( rgbledctl ${Boost_LIBRARIES} )
+ADD_LIBRARY(rgbled SHARED src/rgbled.c)
 
-install (TARGETS rgbledctl DESTINATION bin)
+ADD_EXECUTABLE(rgbledctl src/rgbledctl.cpp)
+
+TARGET_LINK_LIBRARIES(rgbledctl rgbled)
+
+
+
+INSTALL(TARGETS  rgbledctl  rgbled
+			RUNTIME DESTINATION bin
+			LIBRARY DESTINATION lib)
+
+INSTALL(FILES src/rgbledctl.h DESTINATION include)

@@ -26,6 +26,11 @@ symbol serial_in = 3
 
 output 1, 2, 4
 
+; Extra lines for commen anode
+high 0
+high 1
+high 2
+
 ; Choose higher frequency
 setfreq m8
 
