@@ -16,12 +16,23 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
 #include <unistd.h>
+
+// For errno
 #include <errno.h>
-#include <stdlib.h>
-#include <iostream>
+
+// For strerror
 #include <cstring>
 
+// For atoi
+#include <stdlib.h>
+
+// For cerr streaming
+#include <iostream>
+
+
+// RGB LED library
 #include "rgbled.h"
 
 int main(int argc, char* argv[])
@@ -50,7 +61,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    // Send out serial command
+    // Connect to led and change color.
 	rgb_led_t led;
 
 	if(rgbled_connect(&led, port) != 0) {

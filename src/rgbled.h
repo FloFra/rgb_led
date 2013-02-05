@@ -21,7 +21,7 @@
 #define RGBLED_H
 
 #ifdef __cplusplus 
-extern "C" {
+	extern "C" {
 #endif
 
 typedef struct {	
@@ -29,16 +29,32 @@ typedef struct {
 } rgb_led_t;
 
 /*
-	Opens the connection to the RGB LED.
+	Opens the connection to a RGB LED.
+
+	@param led is the led you want to connect.
+	@param port is the serial port to use e.g. /dev/ttyS0.
 */
 int rgbled_connect(rgb_led_t* led, const char* port);
 
+/*
+	Change the color of a RGB LED
+
+	@param led is the led whos color you want to change.
+	@param red_value is the value of the red led.
+	@param green_value is the value of the green led.
+	@param blue_value is the value of the blue led.
+*/
 void rgbled_set(rgb_led_t* led, unsigned char red_value, unsigned char green_value, unsigned char blue_value);
 
+/*
+	Closes the connection to a RGB LED.
+
+	@param led is the led you want to disconnect.
+*/
 int rgbled_disconnect(rgb_led_t* led);
 
 #ifdef __cplusplus
-}
+	}
 # endif
 
 #endif
