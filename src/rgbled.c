@@ -69,8 +69,8 @@ int rgbled_connect(rgb_led_t* led, const char* port) {
 } 
 
 void rgbled_set(rgb_led_t* led, unsigned char r, unsigned char g, unsigned char b) {
-    unsigned char  data[] = { r, g, b };
-    write (led->fd, data, 3); 
+    unsigned char  data[] = { '\0', r, g, b };
+    write (led->fd, data, 4); 
 }
 
 int rgbled_disconnect(rgb_led_t* led) {
