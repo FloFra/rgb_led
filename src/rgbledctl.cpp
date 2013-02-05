@@ -18,8 +18,9 @@
  */
 #include <unistd.h>
 #include <errno.h>
-#include <iostream>
 #include <stdlib.h>
+#include <iostream>
+#include <cstring>
 
 #include "rgbled.h"
 

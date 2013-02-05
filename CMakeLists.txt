@@ -17,4 +17,4 @@ INSTALL(TARGETS  rgbledctl  rgbled
 			RUNTIME DESTINATION bin
 			LIBRARY DESTINATION lib)
 
-INSTALL(FILES src/rgbledctl.h DESTINATION include)
+INSTALL(FILES src/rgbled.h DESTINATION include)
