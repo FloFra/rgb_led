@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <iostream>
+#include <stdlib.h>
 
 #include "rgbled.h"
 
@@ -52,14 +53,14 @@ int main(int argc, char* argv[])
 	rgb_led_t led;
 
 	if(rgbled_connect(&led, port) != 0) {
-		std::cerr <<  "Error #" << errno << " while connecting to " << port << " : " << strerror (errno) << std::endl;
+		std::cerr <<  "Error #" << errno << " while connecting to " << port << " : " << strerror(errno) << std::endl;
 		return 1;
 	}
 
 	rgbled_set(&led, red_value, green_value, blue_value);
 	
 	if(rgbled_disconnect(&led) != 0) {
-		std::cerr <<  "Error #" << errno << " while disconnecting from " << port << " : " << strerror (errno) << std::endl;
+		std::cerr <<  "Error #" << errno << " while disconnecting from " << port << " : " << strerror(errno) << std::endl;
 		return 1;
 	}
 
